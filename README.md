@@ -3,6 +3,18 @@ Data Structures. Enjoy these labs and mps, and please do not pull an all nighter
 
 # Understanding Data Structures
 Below are the notes that I took for Data Structures @UIUC.
+<details>
+	<summary> Click for ALL NOTES </summary>
+	<p>
+
+#### We can hide anything, even code!
+
+    ```ruby
+      puts "Hello World"
+    ```
+
+	</p>
+</details>
 
 # Labs
 Below are all the information about the changes I made on the labs
