@@ -15,6 +15,58 @@ Below are the notes that I took for Data Structures @UIUC.
   ### Variables
   - Variables in C++ are defined by 
     ```` (1) Name ````
+
+  </details>
+
+  <details> <summary> Booleans </summary>
+
+  ### Other Stuff
+  - Variables in C++ are defined by 
+    ```` (1) Name ````
+
+  </details>
+
+  </details>
+
+  <details> <summary> Lecture 2 </summary>
+
+  ## Lecture 1: Introduction
+    
+  <details> <summary> Variables </summary>
+
+  ### Variables
+  - Variables in C++ are defined by 
+    ```` (1) Name ````
+
+  </details>
+
+  <details> <summary> Booleans </summary>
+
+  ### Other Stuff
+  - Variables in C++ are defined by 
+    ```` (1) Name ````
+
+  </details>
+
+  </details>
+  
+
+
+</details>
+
+
+
+<details> <summary> Click for ALL NOTES </summary>
+  
+  <details> <summary> Lecture 1 </summary>
+
+  ## Lecture 1: Introduction
+    
+  <details> <summary> Variables </summary>
+
+  ### Variables
+  - Variables in C++ are defined by 
+    ```` (1) Name ````
     ```` (2) Type ````
     ```` (3) Locations (in memory) ````
     ```` (4) Value ````
