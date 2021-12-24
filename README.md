@@ -10,7 +10,7 @@ Below are the notes that I took for Data Structures @UIUC.
 
   ## Lecture 1: Introduction
     
-  <details> <summary> Variables</summary>
+  <details> <summary> Variables </summary>
 
   ### Variables
   - Variables in C++ are defined by 
@@ -56,6 +56,7 @@ Below are the notes that I took for Data Structures @UIUC.
 
 
 
+  </details>
 </details>
 
 
