@@ -1,28 +1,28 @@
 # CS-225
 Data Structures. Enjoy these labs and mps, and please do not pull an all nighter for the labs.
 
-# Understanding Data Structures
+# Understanding Data Structures: Lectures
 Below are the notes that I took for Data Structures @UIUC.
 
+## Lectures:
 <details> <summary> Click for ALL NOTES </summary>
   
-  ## Lectures:
-
+  ### Lecture 1: Introduction
   <details> <summary> <span style="color: green"> Lecture 1 </span> </summary>
 
-  ### Lecture 1: Introduction
-    
+  #### Variables
   <details> <summary> Variables </summary>
 
-  ### Variables
+
   - Variables in C++ are defined by 
     ```` (1) Name ````
 
   </details>
 
-  <details> <summary> Booleans </summary>
+  #### Other Stuff
+  <details> <summary> Other Stuff </summary>
 
-  ### Other Stuff
+
   - Variables in C++ are defined by 
     ```` (1) Name ````
 
@@ -30,21 +30,21 @@ Below are the notes that I took for Data Structures @UIUC.
 
   </details>
 
+  ### Lecture 2: STUFF
   <details> <summary> <span style="color: green"> Lecture 2 </span></summary>
 
-  ## Lecture 1: Introduction
-    
-  <details> <summary> Variables </summary>
+  #### HELLO    
+  <details> <summary> Hello </summary>
 
-  ### Variables
   - Variables in C++ are defined by 
     ```` (1) Name ````
 
   </details>
 
+  #### Other Stuff
   <details> <summary> Booleans </summary>
 
-  ### Other Stuff
+
   - Variables in C++ are defined by 
     ```` (1) Name ````
 
