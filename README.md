@@ -179,11 +179,76 @@ int main {
 
   ```` Cube * s1; ```` // a pointer to a variable of type Cube
 
-  #### Pointers
-  > 
+  #### Pointers and References
+  > a ptr has its own memory addr and size on the run time stack
+
+  > a reference shares the same memory addr (w the original variable) but also takes up its own 'spot' in the run time stack
+
+  ```
+  int i = 3;
+  int *ptr = &i; // a ptr to variable 'i'. ptr stores addr of i
+  int &ref = i;  // a reference (or alias) for i
+  ```
+
+  ```` Initialization of a pointer variable ````
+  ```
+  int  a = 10;
+  int *p = &a; // do not do it this way. looks weird becuz p = &a is better
+
+  OR
+
+  int  a = 10;
+  int *p;
+  p = &a;   // value of 'p' = addr of 1
+  print(*p) // prints the dereferenced '*p' value at the addr of &a 
+  ```
+
+  > pointers can be re-assigned. 
+  ```
+  int a = 5;
+  int b = 6;
+  int *p;
+  p =  &a;
+  p = &b;
+  ```
+
+  ```` Initialization of a reference variable ````
+  ```
+  int  a = 10;
+  int &p = a; // addr of p takes the value of 10
+  ```
+
+  > references canNOT be re-assigned: ERROR for MULTIPLE DECLARATION
+  ```
+  int a = 5;
+  int b = 6;
+  int &p = a;
+  int &p = b; 
+  ```
 
   #### Indirection Operators
-  > 
+  > You can have pointers to pointers offering extra levels of indirection
+  ```
+  int  a = 10;
+  int *p;
+  int **q;
+  p = &a;   // value of 'p' = addr of a
+  q = &p;   // value of 'q' = addr of p
+
+  ```
+
+  > Whereas references only offer one level of indirection
+  ```
+  int  a = 10;
+  int *p;
+  p = &a;   // value of 'p' = addr of 1
+  &p = a;   // the addr of 'p' = the value of a = the value of 10
+
+  //       val of p   (p) = addr of a
+  //       addr of p (&p) = val of a, 10
+  // deref val of *p (*p) = val of a, 10
+  ```
+
 
   #### Stack Memory
   > 
@@ -191,7 +256,7 @@ int main {
   #### Stack Frames
   > 
 
-  
+
   </details>
   
 
