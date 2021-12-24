@@ -6,6 +6,7 @@ Below are the notes that I took for Data Structures @UIUC.
 
 <details> <summary> Click for ALL NOTES </summary>
   
+  
   <details> <summary> Lecture 1 </summary>
 
   ## Lecture 1: Introduction
