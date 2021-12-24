@@ -10,11 +10,49 @@ Below are the notes that I took for Data Structures @UIUC.
   ### Lecture 1: Introduction
   <details> <summary> <span style="color: green"> Lecture 1 </span> </summary>
 
-  #### Variables
+  #### Variables Description
   > Variables in C++ are defined by Name, Type, Locations in Memory, and Value
+
+  #### Variable Types
   > Variables can be primitive (int, char, double, boolean, float, pointer) or they can be User Defined (defined by classes)
+
+  #### Encapsulation
+  > Separates the interface from the implementation
+
+  ```` // cube.h: ````  Interface/API (What the class is supposed to do)
+
+  ```` // cube.cpp: ```` Implementation (how the class is supposed to do it)
+
+  #### Inclusion Guards
+  > "#pragma once" sends a message to the compiler that this file is only included once.
+  > "#ifndef CUBE_H_ , #define CUBE_H_, #endif" is the same as above
+  ```` // cube.h: ```` Equivalent Implementation
+  ```
+  #ifndef CUBE_H_ 
+  #define CUBE_H_
+
+  class Cube {
+    public:
+    private:
+  };
+
+  #endif 
+  ```
+
+  ```
+  #pragma once
+
+  class Cube {
+    public:
+    private:
+  };
+  ```
+
+
+
+
+
   
-  #### Other Stuff
 
 
   </details>
