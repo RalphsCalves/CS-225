@@ -144,8 +144,54 @@ Below are the notes that I took for Data Structures @UIUC.
   ```
 
   #### Reference Variables
-  
+  > aliases is used to bound two values together. 
+  > once the value of j changes, the value of i changes changes and vice versa
 
+```` main.cpp ````
+```
+int main {
+     int i = 7;
+
+     /* j is an alias of i */
+     int &j = i;   	
+
+     /* j and i are both 4 */
+     j = 4;		
+     std::cout << i << “ ” << j << std::endl;   
+
+     /* j and i are both 2 */
+     i = 2;		
+     std::cout << i << “ ” << j << std::endl;   
+     return 0;
+}
+```
+
+  </details>
+
+  ### Lecture 3: Memory
+  <details> <summary> <span style="color: green"> Lecture 3 </span></summary>
+
+  #### Variable, Reference Variables, Pointers
+
+  ```` Cube   s1; ```` // a variable containing a Cube obj
+
+  ```` Cube & s2; ```` // a reference to a variable of type Cube
+
+  ```` Cube * s1; ```` // a pointer to a variable of type Cube
+
+  #### Pointers
+  > 
+
+  #### Indirection Operators
+  > 
+
+  #### Stack Memory
+  > 
+
+  #### Stack Frames
+  > 
+
+  
   </details>
   
 
