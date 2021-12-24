@@ -65,7 +65,8 @@ Below are the notes that I took for Data Structures @UIUC.
   #### Namespace
   > Namespaces are like Libraries in C++. std = standard namespace includes cout, vector, queue,
   
-  ```` cs225::Cube: ```` cs225 namespace includes Cube, PNG, HSLAPixel,
+  ```` cs225::Cube: ```` cs225 namespace includes Cube, PNG, HSLAPixel, etc
+
   ```` std::cout ```` standard namespace includes cout, vector, queue, etc
 
   ```` // cube.h declares namespace class Cube````
@@ -108,6 +109,42 @@ Below are the notes that I took for Data Structures @UIUC.
     
   ```
 
+  #### Constructor
+  ```` Default Constructor: ```` No parameter, Initializes the class value to default values
+
+  ```` Custom Contructor: ```` user may set the initialization 
+
+  ```` // cube.h ````
+  ```
+  /* ... */
+  class Cube{
+    public:
+    Cube (); // default constructor
+    Cube (double r); // custom constructor
+  /* ... */
+  ```
+  ```` // cube.cpp ````
+  ```
+  /* ... */
+
+  Cube::Cube() { //define default constructor
+      radius_ = 1;
+  }
+  Cube::Cube(double r) { //define custom constructor
+      radius_ = r;
+  }
+  ```
+  ```` // main.cpp ````
+  ```
+  /* ... */
+  main(){
+    cs225::Cube c; // initializes/uses automatic Cube constructor w length 1
+    cs225::Cube c(5) // initializes/uses custom Cube constructor w length 5
+  }
+  ```
+
+  #### Reference Variables
+  
 
   </details>
   
