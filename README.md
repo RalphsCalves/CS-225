@@ -6,10 +6,11 @@ Below are the notes that I took for Data Structures @UIUC.
 
 <details> <summary> Click for ALL NOTES </summary>
   
-  
+  ## Lectures:
+
   <details> <summary> Lecture 1 </summary>
 
-  ## Lecture 1: Introduction
+  ### Lecture 1: Introduction
     
   <details> <summary> Variables </summary>
 
