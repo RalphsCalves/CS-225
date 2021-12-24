@@ -11,22 +11,9 @@ Below are the notes that I took for Data Structures @UIUC.
   <details> <summary> <span style="color: green"> Lecture 1 </span> </summary>
 
   #### Variables
-  <details> <summary> Variables </summary>
-
-
-  - Variables in C++ are defined by 
-    ```` (1) Name ````
-
-  </details>
 
   #### Other Stuff
-  <details> <summary> Other Stuff </summary>
 
-
-  - Variables in C++ are defined by 
-    ```` (1) Name ````
-
-  </details>
 
   </details>
 
@@ -34,21 +21,9 @@ Below are the notes that I took for Data Structures @UIUC.
   <details> <summary> <span style="color: green"> Lecture 2 </span></summary>
 
   #### HELLO    
-  <details> <summary> Hello </summary>
-
-  - Variables in C++ are defined by 
-    ```` (1) Name ````
-
-  </details>
 
   #### Other Stuff
-  <details> <summary> Booleans </summary>
 
-
-  - Variables in C++ are defined by 
-    ```` (1) Name ````
-
-  </details>
 
   </details>
   
