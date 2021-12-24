@@ -11,7 +11,9 @@ Below are the notes that I took for Data Structures @UIUC.
   <details> <summary> <span style="color: green"> Lecture 1 </span> </summary>
 
   #### Variables
-
+  > Variables in C++ are defined by Name, Type, Locations in Memory, and Value
+  > Variables can be primitive (int, char, double, boolean, float, pointer) or they can be User Defined (defined by classes)
+  
   #### Other Stuff
 
 
