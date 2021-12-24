@@ -8,7 +8,7 @@ Below are the notes that I took for Data Structures @UIUC.
   
   ## Lectures:
 
-  <details> <summary> Lecture 1 </summary>
+  <details> <summary> <bold> Lecture 1 </bold> </summary>
 
   ### Lecture 1: Introduction
     
