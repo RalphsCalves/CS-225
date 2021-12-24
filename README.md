@@ -26,6 +26,7 @@ Below are the notes that I took for Data Structures @UIUC.
   #### Inclusion Guards
   > "#pragma once" sends a message to the compiler that this file is only included once.
   > "#ifndef CUBE_H_ , #define CUBE_H_, #endif" is the same as above
+
   ```` // cube.h: ```` Equivalent Implementation
   ```
   #ifndef CUBE_H_ 
@@ -47,22 +48,65 @@ Below are the notes that I took for Data Structures @UIUC.
     private:
   };
   ```
-
-
-
-
-
   
-
-
+  #### Scope Resolution Opperator
+  > 'double Cube::getVolume(){ . . . }' in Cube.cpp allows us to implement the getVolume() method in the Cube class
+  
   </details>
 
-  ### Lecture 2: STUFF
+  ### Lecture 2: Classes
   <details> <summary> <span style="color: green"> Lecture 2 </span></summary>
 
-  #### HELLO    
+  #### Public vs Private
+  > Public variables are members of classes that can be accessed from the outside of the class
 
-  #### Other Stuff
+  > Private variables are members of classes that can only be used within the class's functions and cannot be viewed outside the classes
+
+  #### Namespace
+  > Namespaces are like Libraries in C++. std = standard namespace includes cout, vector, queue,
+  
+  ```` cs225::Cube: ```` cs225 namespace includes Cube, PNG, HSLAPixel,
+  ```` std::cout ```` standard namespace includes cout, vector, queue, etc
+
+  ```` // cube.h declares namespace class Cube````
+  ```
+  #pragma once 
+  namespace cs225 {
+    class Cube {
+      public:
+        double getVolume();
+        double getSurfaceArea();
+        void setLength(double length);
+      private:
+        double length_;  
+    };
+  ```
+  ```` // cube.cpp implementation of func in the Cube Class in cs225 namespace ````
+  ```
+  #include "Cube.h" 
+  namespace cs225 {
+    double Cube::getVolume() {
+      return length_*length_*length_;
+    }
+    double Cube::getSurfaceArea() {
+      return 6 * length_ * length_;
+    }
+  void Cube::setLength(double length){
+      length_ = length;
+    
+  ```
+  ```` // main.cpp using the objects of Cube class ````
+  ```
+  #include “Cube.h”
+  #include <iostream>
+
+  int main() {
+      cs225::Cube c; // declares obj of cube type
+      std::cout << "Volume: " <<    c.getVolume() << std::endl;
+      return 0;
+  }
+    
+  ```
 
 
   </details>
@@ -75,7 +119,7 @@ Below are the notes that I took for Data Structures @UIUC.
 
 <details> <summary> Click for ALL NOTES </summary>
   
-  <details> <summary> Lecture 1 </summary>
+  <details> <summary> Lecture 1: Introduction </summary>
 
   ## Lecture 1: Introduction
     
