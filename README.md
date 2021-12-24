@@ -3,28 +3,61 @@ Data Structures. Enjoy these labs and mps, and please do not pull an all nighter
 
 # Understanding Data Structures
 Below are the notes that I took for Data Structures @UIUC.
-<details>
-	<summary> Click for ALL NOTES </summary>
 
-		
-## Lecture 1: Introduction
-### Variables
-- Variables in C++ are defined by 
-	```` (1) Name ````
-	```` (2) Type ````
-	```` (3) Locations (in memory) ````
-	```` (4) Value ````
-	
-- Variable Types can be Primitive
-	```` int ````
-	```` char ````
-	```` double ````
-	```` boolean ````
-	```` float ````
-	```` pointer ````
-	
-Or Variable Types can be User Defined
-	```` Use classes to define new vars ````
+<details> <summary> Click for ALL NOTES </summary>
+  
+  <details> <summary> Lecture 1 </summary>
+
+  ## Lecture 1: Introduction
+    
+  <details> <summary> Variables</summary>
+
+  ### Variables
+  - Variables in C++ are defined by 
+    ```` (1) Name ````
+    ```` (2) Type ````
+    ```` (3) Locations (in memory) ````
+    ```` (4) Value ````
+    
+  - Variable Types can be Primitive
+    ```` int ````
+    ```` char ````
+    ```` double ````
+    ```` boolean ````
+    ```` float ````
+    ```` pointer ````
+    
+  - Or Variable Types can be User Defined
+    ```` Use classes to define new vars ````
+
+  </details>
+
+  <details> <summary> Variables </summary>
+
+  ### Variables
+  - Variables in C++ are defined by 
+    ```` (1) Name ````
+    ```` (2) Type ````
+    ```` (3) Locations (in memory) ````
+    ```` (4) Value ````
+    
+  - Variable Types can be Primitive
+    ```` int ````
+    ```` char ````
+    ```` double ````
+    ```` boolean ````
+    ```` float ````
+    ```` pointer ````
+    
+  - Or Variable Types can be User Defined
+    ```` Use classes to define new vars ````
+
+  </details>
+
+
+
+</details>
+
 
 ### Encapsulation:
 | cube.h | cube.cpp |
