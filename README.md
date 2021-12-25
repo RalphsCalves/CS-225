@@ -271,7 +271,7 @@ int main {
 
   </details>
   
-  ### Lecture : 4 Heap Memory
+  ### Lecture 4 : Heap Memory
   <details> <summary> <span style="color: green"> Lecture 4 </span></summary>
 
   #### Heap Memory Description
@@ -342,7 +342,7 @@ int main {
 
   </details>
 
-  ### Lecture : 5 Function & Parameter
+  ### Lecture 5 : Function & Parameter
   <details> <summary> <span style="color: green"> Lecture 5 </span></summary>
 
   #### Function Parameters
@@ -408,25 +408,107 @@ int main {
 
   ```
 
+  #### Summary
+  | --- | Pass By Value | Pass By Pointer | Pass By Reference |
+  | --- | --- | --- | --- |
+  | The copied content| The entire data | the memory addr | just an alias |
+  | Does the modification go through the caller's obj | No | Yes | Yes |
+  | Always Valid when passed in | Yes | No - could be NULL when passed in | Yes |
+  | Relative speed among 3 ways to pass func parameters | Slow (depending on data size) | Fast (always 8 bytes) | Fast |
+  | The Relative Programming Safety | Safety | Not Safe | Safe-ish |
+
   #### The 'const' Function Parameter
+  The keyword 'const' is a way to prevent the parameters passed in to be changed. We are saving the memory because we are not passing by value and at the same time to avoid the risk of changing the original. 
 
+  ```` joinCubes-byRef-const.cpp ````
 
-  #### 
+  ```
+  Cube joinCubes(const Cube & c1 , const Cube & c2) {
+    double totalVolume = c1.getVolume() + c2.getVolume();
+    ...
+  }
+  int main() {
+    ...
+    Cube c3 = joinCubes(*c1, *c2);
+    return 0; 
+  }
 
-  #### 
+  ```
 
   </details>
 
-  ### Lecture : 5 Function & Parameter
-  <details> <summary> <span style="color: green"> Lecture 5 </span></summary>
+  ### Lecture 6 : LifeCycle & Constructors
+  <details> <summary> <span style="color: green"> Lecture 6 </span></summary>
 
-  #### Function Parameters
+  #### Copy Constructors
+  ```` Automatic Copy Constructors ```` Generated if we don't define a copy const, Copies every instance variable in the obj
+
+  ```` Custom Copy Constructor ```` passed by reference
+
+  ```
+  Cube(const Cube & other){
+    ...
+  };
+
+  ```
   
-  #### The 'const' Function Parameter
+  #### Calls to Copy Constructor
 
-  #### 
+  | Constructors | joinCube(Cube c1, Cube c2) {...} BY VALUE | joinCube(Cube * c1, Cube * c2) {...} BY POINTER | joinCube(Cube & c1, Cube & c2) {...} BY REFERENCE |
+  | Cube(); | 0 | 0 | 0 |
+  | Cube(double length); | Cube result(newLength) | Cube result(newLength) | Cube result(newLength) |
+  | Cube(Cube & other); //COPY CONSTRUCTOR | joinCube(Cube c1, Cube c2); return result; | return result; | return result |
 
-  #### 
+  > the copy constructo is called when the parameter is passed-in (and when the reslt is returned)
+
+  ```` joinCubes-byValue.cpp ````
+  ```
+  Cube joinCubes(Cube c1, Cube c2) {
+    double totalVolume = c1.getVolume() + c2.getVolume();
+    ...
+    Cube result(newLength);
+    return result; // 000
+  }
+
+  ```
+
+  #### Copy Constructor Initializer
+  > it tells the compiler to 'shallow' copy instance variables to the variables in "other"
+
+  ```` Tomer.h ````
+  ```
+  #pragma once
+  #include "cs225/Cube.h"
+  using cs225::Cube;
+  class Tower {
+    public:
+      Tower(Cube c, Cube *ptr, const Cube &ref); 
+                            // Custom constructor 
+      Tower(const Tower & other); 
+                            // Copy constructor
+
+    private:
+      Cube cube_;
+      Cube *ptr_;
+      const Cube &ref;
+  };
+
+  ```
+
+  ```` Tower.cpp ````
+  ```
+  Tower::Tower(const Tower & other) : cube_(other.cube_), ptr_(other.ptr_), ref_(other.ref_) {
+    //every variable copied
+    //nothing needed in the body
+  }
+
+  ```
+
+  #### Deep Copy Constructor
+
+  #### Deconstructor
+
+  #### Automatic Destructor
 
   </details>
 
