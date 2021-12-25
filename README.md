@@ -518,8 +518,35 @@ int main {
 
 
 
-# Labs
+# Weekly Practice: Labs
 Below are all the information about the changes I made on the labs
+
+## Labs: 
+<details>
+	<summary> Click for ALL LABS </summary>
+
+  ### Setup, Command Line on Linux EWS, etc
+  <details> <summary> <span style="color: green"> Setup, Command Line on Linux EWS </span></summary>
+  </details>  
+
+  ### lab_intro
+  <details> <summary> <span style="color: green"> lab_intro </span></summary>
+
+  #### Description
+  > 'replace with lab concept' 
+
+  #### Changed Files: 
+  ```` file1 ```` ```` file2 ```` ```` file3````
+
+  #### Instructions
+  ```` file1: ```` 
+  
+  ```` file2: ```` 
+  
+  ```` file3: ````
+
+  </details>
+</details>
 
 <details>
 	<summary> Click for lab_intro </summary>
