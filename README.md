@@ -809,6 +809,150 @@ Below are all the information about the changes I made on the labs
 
 # Machine Problems (MPs)
 Below are all the information about the changes I made on the Machine Problems
+
+## Machine Problems: 
+<details>
+	<summary> Click for ALL MACHINE PROBLEMS </summary>
+
+  ### mp_intro
+  <details> <summary> <span style="color: green"> mp_intro </span></summary>
+
+  #### Description
+  > 'replace with lab concept' 
+
+  #### Changed Files: 
+  ```` file1 ```` ```` file2 ```` ```` file3````
+
+  #### Instructions
+  ```` file1: ```` 
+  
+  ```` file2: ```` 
+  
+  ```` file3: ````
+
+  #### Output Files, Design Statistics and Resources (inspired by ECE 385)
+  ```` 'image' of output: ````
+
+  ```` 'image' of terminal (Design Stats & Resources) ````
+  
+  </details>
+
+  ### mp_stickers
+  <details> <summary> <span style="color: green"> mp_stickers </span></summary>
+
+  #### Description
+  > 'replace with lab concept' 
+
+  #### Changed Files: 
+  ```` file1 ```` ```` file2 ```` ```` file3````
+
+  #### Instructions
+  ```` file1: ```` 
+  
+  ```` file2: ```` 
+  
+  ```` file3: ````
+
+  #### Output Files, Design Statistics and Resources (inspired by ECE 385)
+  ```` 'image' of output: ````
+
+  ```` 'image' of terminal (Design Stats & Resources) ````
+  
+  </details>
+
+  ### mp_lists
+  <details> <summary> <span style="color: green"> mp_lists </span></summary>
+
+  #### Description
+  > 'replace with lab concept' 
+
+  #### Changed Files: 
+  ```` file1 ```` ```` file2 ```` ```` file3````
+
+  #### Instructions
+  ```` file1: ```` 
+  
+  ```` file2: ```` 
+  
+  ```` file3: ````
+
+  #### Output Files, Design Statistics and Resources (inspired by ECE 385)
+  ```` 'image' of output: ````
+
+  ```` 'image' of terminal (Design Stats & Resources) ````
+  
+  </details>
+
+  ### mp_traversals
+  <details> <summary> <span style="color: green"> mp_traversals </span></summary>
+
+  #### Description
+  > 'replace with lab concept' 
+
+  #### Changed Files: 
+  ```` file1 ```` ```` file2 ```` ```` file3````
+
+  #### Instructions
+  ```` file1: ```` 
+  
+  ```` file2: ```` 
+  
+  ```` file3: ````
+
+  #### Output Files, Design Statistics and Resources (inspired by ECE 385)
+  ```` 'image' of output: ````
+
+  ```` 'image' of terminal (Design Stats & Resources) ````
+  
+  </details>
+
+  ### mp_mosaics
+  <details> <summary> <span style="color: green"> mp_mosaics </span></summary>
+
+  #### Description
+  > 'replace with lab concept' 
+
+  #### Changed Files: 
+  ```` file1 ```` ```` file2 ```` ```` file3````
+
+  #### Instructions
+  ```` file1: ```` 
+  
+  ```` file2: ```` 
+  
+  ```` file3: ````
+
+  #### Output Files, Design Statistics and Resources (inspired by ECE 385)
+  ```` 'image' of output: ````
+
+  ```` 'image' of terminal (Design Stats & Resources) ````
+  
+  </details>
+
+  ### mp_mazes
+  <details> <summary> <span style="color: green"> mp_mazes </span></summary>
+
+  #### Description
+  > 'replace with lab concept' 
+
+  #### Changed Files: 
+  ```` file1 ```` ```` file2 ```` ```` file3````
+
+  #### Instructions
+  ```` file1: ```` 
+  
+  ```` file2: ```` 
+  
+  ```` file3: ````
+
+  #### Output Files, Design Statistics and Resources (inspired by ECE 385)
+  ```` 'image' of output: ````
+
+  ```` 'image' of terminal (Design Stats & Resources) ````
+  
+  </details>
+
+</details>
 <details>
 	<summary> Click for mp_intro </summary>
 	<p>
