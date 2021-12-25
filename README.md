@@ -807,7 +807,7 @@ Below are all the information about the changes I made on the labs
 </details>
 
 
-# Machine Problems (MPs)
+# Tri-Weekly Practice: Machine Problems (MPs)
 Below are all the information about the changes I made on the Machine Problems
 
 ## Machine Problems: 
