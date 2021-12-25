@@ -321,6 +321,7 @@ int main {
 
   #### The use of '&' operator for references
   > A declaration of a reference variable would be like: 
+
   ```` ALIASES INIT: space in between & and variable name ````
   ```
   int a = 3
@@ -329,6 +330,7 @@ int main {
   ```
 
   > this process should not be confused with the case of getting the memory address of a variable which would also involved with '&' operator, as the example shown below:
+  
   ```` REFERENCE INIT: no space in between & and variable name ````
   ```
   Cube c;
@@ -345,10 +347,12 @@ int main {
 
   #### Function Parameters
   > There are 3 ways to pass an arguement to a function
+
   ##### pass by value 
   the obj passed in it a copy of the original obj. By changing it, we do not change the original. Less efficient because it needs extra memory
 
   ```` joinCubes-byValue.cpp ````
+
   ```
   Cube joinCubes(Cube c1, Cube c2) {
     double totalVolume = c1.getVolume() + c2.getVolume();
@@ -370,6 +374,7 @@ int main {
   the obj passed in is a pointer of the original obj. By changing it, we do change the original. More efficient because we treat the memory. But more risky because we can get an invalid paramter (NULL) that gets passed in
 
   ```` joinCubes-byPointer.cpp ````
+  ```
   Cube joinCubes(Cube * c1, Cube * c2) {
     double totalVolume = c1->getVolume() + c2->getVolume();
     ...
@@ -380,13 +385,14 @@ int main {
     Cube c3 = joinCubes(c1, c2); 
     return 0;
   }
-
+  ```
 
 
   ##### pass by reference
   the obj passed in is an alias of the original obj. By changing it, we do change the original. More efficient because we treat the memory. But more risky because we are changing the original value
 
   ```` joinCubes-byRef.cpp ````
+
   ```
   Cube joinCubes(Cube & c1, Cube & c2) {
     double totalVolume = c1.getVolume() + c2.getVolume();
