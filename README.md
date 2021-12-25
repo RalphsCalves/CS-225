@@ -455,6 +455,7 @@ int main {
   #### Calls to Copy Constructor
 
   | Constructors | joinCube(Cube c1, Cube c2) {...} BY VALUE | joinCube(Cube * c1, Cube * c2) {...} BY POINTER | joinCube(Cube & c1, Cube & c2) {...} BY REFERENCE |
+  | --- | --- | --- | --- | 
   | Cube(); | 0 | 0 | 0 |
   | Cube(double length); | Cube result(newLength) | Cube result(newLength) | Cube result(newLength) |
   | Cube(Cube & other); //COPY CONSTRUCTOR | joinCube(Cube c1, Cube c2); return result; | return result; | return result |
