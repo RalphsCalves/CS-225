@@ -545,6 +545,264 @@ Below are all the information about the changes I made on the labs
   
   ```` file3: ````
 
+  #### Output Files, Design Statistics and Resources (inspired by ECE 385)
+  ```` 'image' of output: ````
+
+  ```` 'image' of terminal (Design Stats & Resources) ````
+  
+  </details>
+
+  ### lab_debug
+  <details> <summary> <span style="color: green"> lab_debug </span></summary>
+
+  #### Description
+  > 'replace with lab concept' 
+
+  #### Changed Files: 
+  ```` file1 ```` ```` file2 ```` ```` file3````
+
+  #### Instructions
+  ```` file1: ```` 
+  
+  ```` file2: ```` 
+  
+  ```` file3: ````
+
+  #### Output Files, Design Statistics and Resources (inspired by ECE 385)
+  ```` 'image' of output: ````
+
+  ```` 'image' of terminal (Design Stats & Resources) ````
+  
+  </details>
+
+  ### lab_memory
+  <details> <summary> <span style="color: green"> lab_memory </span></summary>
+
+  #### Description
+  > 'replace with lab concept' 
+
+  #### Changed Files: 
+  ```` file1 ```` ```` file2 ```` ```` file3````
+
+  #### Instructions
+  ```` file1: ```` 
+  
+  ```` file2: ```` 
+  
+  ```` file3: ````
+
+  #### Output Files, Design Statistics and Resources (inspired by ECE 385)
+  ```` 'image' of output: ````
+
+  ```` 'image' of terminal (Design Stats & Resources) ````
+  
+  </details>
+
+  ### lab_inheritance
+  <details> <summary> <span style="color: green"> lab_inheritance </span></summary>
+
+  #### Description
+  > 'replace with lab concept' 
+
+  #### Changed Files: 
+  ```` file1 ```` ```` file2 ```` ```` file3````
+
+  #### Instructions
+  ```` file1: ```` 
+  
+  ```` file2: ```` 
+  
+  ```` file3: ````
+
+  #### Output Files, Design Statistics and Resources (inspired by ECE 385)
+  ```` 'image' of output: ````
+
+  ```` 'image' of terminal (Design Stats & Resources) ````
+  
+  </details>
+
+  ### lab_quacks
+  <details> <summary> <span style="color: green"> lab_quacks </span></summary>
+
+  #### Description
+  > 'replace with lab concept' 
+
+  #### Changed Files: 
+  ```` file1 ```` ```` file2 ```` ```` file3````
+
+  #### Instructions
+  ```` file1: ```` 
+  
+  ```` file2: ```` 
+  
+  ```` file3: ````
+
+  #### Output Files, Design Statistics and Resources (inspired by ECE 385)
+  ```` 'image' of output: ````
+
+  ```` 'image' of terminal (Design Stats & Resources) ````
+  
+  </details>
+
+  ### lab_trees
+  <details> <summary> <span style="color: green"> lab_trees </span></summary>
+
+  #### Description
+  > 'replace with lab concept' 
+
+  #### Changed Files: 
+  ```` file1 ```` ```` file2 ```` ```` file3````
+
+  #### Instructions
+  ```` file1: ```` 
+  
+  ```` file2: ```` 
+  
+  ```` file3: ````
+
+  #### Output Files, Design Statistics and Resources (inspired by ECE 385)
+  ```` 'image' of output: ````
+
+  ```` 'image' of terminal (Design Stats & Resources) ````
+  
+  </details>
+
+  ### lab_huffman
+  <details> <summary> <span style="color: green"> lab_huffman </span></summary>
+
+  #### Description
+  > 'replace with lab concept' 
+
+  #### Changed Files: 
+  ```` file1 ```` ```` file2 ```` ```` file3````
+
+  #### Instructions
+  ```` file1: ```` 
+  
+  ```` file2: ```` 
+  
+  ```` file3: ````
+
+  #### Output Files, Design Statistics and Resources (inspired by ECE 385)
+  ```` 'image' of output: ````
+
+  ```` 'image' of terminal (Design Stats & Resources) ````
+  
+  </details>
+
+  ### lab_avl
+  <details> <summary> <span style="color: green"> lab_avl </span></summary>
+
+  #### Description
+  > 'replace with lab concept' 
+
+  #### Changed Files: 
+  ```` file1 ```` ```` file2 ```` ```` file3````
+
+  #### Instructions
+  ```` file1: ```` 
+  
+  ```` file2: ```` 
+  
+  ```` file3: ````
+
+  #### Output Files, Design Statistics and Resources (inspired by ECE 385)
+  ```` 'image' of output: ````
+
+  ```` 'image' of terminal (Design Stats & Resources) ````
+  
+  </details>
+
+  ### lab_btree
+  <details> <summary> <span style="color: green"> lab_btree </span></summary>
+
+  #### Description
+  > 'replace with lab concept' 
+
+  #### Changed Files: 
+  ```` file1 ```` ```` file2 ```` ```` file3````
+
+  #### Instructions
+  ```` file1: ```` 
+  
+  ```` file2: ```` 
+  
+  ```` file3: ````
+
+  #### Output Files, Design Statistics and Resources (inspired by ECE 385)
+  ```` 'image' of output: ````
+
+  ```` 'image' of terminal (Design Stats & Resources) ````
+  
+  </details>
+
+  ### lab_hash
+  <details> <summary> <span style="color: green"> lab_hash </span></summary>
+
+  #### Description
+  > 'replace with lab concept' 
+
+  #### Changed Files: 
+  ```` file1 ```` ```` file2 ```` ```` file3````
+
+  #### Instructions
+  ```` file1: ```` 
+  
+  ```` file2: ```` 
+  
+  ```` file3: ````
+
+  #### Output Files, Design Statistics and Resources (inspired by ECE 385)
+  ```` 'image' of output: ````
+
+  ```` 'image' of terminal (Design Stats & Resources) ````
+  
+  </details>
+
+  ### lab_heaps
+  <details> <summary> <span style="color: green"> lab_heaps </span></summary>
+
+  #### Description
+  > 'replace with lab concept' 
+
+  #### Changed Files: 
+  ```` file1 ```` ```` file2 ```` ```` file3````
+
+  #### Instructions
+  ```` file1: ```` 
+  
+  ```` file2: ```` 
+  
+  ```` file3: ````
+
+  #### Output Files, Design Statistics and Resources (inspired by ECE 385)
+  ```` 'image' of output: ````
+
+  ```` 'image' of terminal (Design Stats & Resources) ````
+  
+  </details>
+
+  ### lab_dict
+  <details> <summary> <span style="color: green"> lab_dict </span></summary>
+
+  #### Description
+  > 'replace with lab concept' 
+
+  #### Changed Files: 
+  ```` file1 ```` ```` file2 ```` ```` file3````
+
+  #### Instructions
+  ```` file1: ```` 
+  
+  ```` file2: ```` 
+  
+  ```` file3: ````
+
+  #### Output Files, Design Statistics and Resources (inspired by ECE 385)
+  ```` 'image' of output: ````
+
+  ```` 'image' of terminal (Design Stats & Resources) ````
+  
   </details>
 </details>
 
