@@ -62,6 +62,24 @@ PNG grayscale(PNG image) {
  */
 PNG createSpotlight(PNG image, int centerX, int centerY) {
 
+  for (unsigned int x = 0; x < image.width(); x++){
+    for(unsigned int y = 0; y < image.height(); y++){
+
+      HSLAPixel & pixel = png.getPixel(x,y);
+
+      // set pixel HSLA values
+      pixel.h = image.imageData_.h; // stays same
+      pixel.s = image.imageData_.s; // stays same
+      pixel.a = image.imageData_.a; // stays same
+
+      dist = ((x-centerX)^2 + (y-centerY)^2)^(.5);
+      pixel.l = (.005)*(dist)*image.imageData_.l;
+
+
+
+      
+    }
+  }
   return image;
   
 }
@@ -79,6 +97,33 @@ PNG createSpotlight(PNG image, int centerX, int centerY) {
 **/
 PNG illinify(PNG image) {
 
+  for (unsigned int x = 0; x < image.width(); x++){
+    for(unsigned int y = 0; y < image.height(); y++){
+
+      HSLAPixel & pixel = png.getPixel(x,y);
+      bool closerToBlue;
+      pixelHue = ; blueHue = ; orangeHue = ;
+
+      // set pixel HSLA values
+      pixel.s = image.HSLAPixel.s; // stays same
+      pixel.l = image.HSLAPixel.l; // stays same
+      pixel.a = image.HSLAPixel.a; // stays same
+
+
+      distToBlue = pixelHue - blueHue;
+      distToOrange = pixelHue - orangeHue;
+
+      if(distToBlue < closerToOrange)
+        closerToBlue = true;
+
+      if(closerToBlue)
+        pixel.h = blueHue; 
+      
+      else
+        pixel.h = orangeHue; 
+
+    }
+  }
   return image;
 }
  
