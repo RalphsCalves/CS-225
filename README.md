@@ -476,7 +476,7 @@ int main {
   #### Copy Constructor Initializer
   > it tells the compiler to 'shallow' copy instance variables to the variables in "other"
 
-  ```` Tomer.h ````
+  ```` Tower.h ````
   ``` c++
   #pragma once
   #include "cs225/Cube.h"
@@ -506,12 +506,193 @@ int main {
   ```
 
   #### Deep Copy Constructor
+  > a deep copy initializes the constructed variable in memory
+
+  > deep copies are used for every instance variable (specifically the pointer, we want a new Cube)
+
+  ```` Tower.cpp ````
+  ``` c++
+  Tower::Tower(const Tower & other) : ref_(other.ref_){
+    
+    // Deep copy cube_:  using other
+    cube_ = other.cube_;
+
+    // Deep copy ptr_
+    ptr_ = new Cube`(*other.ptr_);
+
+    // Deep copy ref_ (?)
+      // Doesn’t make sense to “deep copy” an alias
+      // Done in the Initializer List
+  }
+
+  ```
 
   #### Deconstructor
+  > used to clean up all resources (memory) held by the class. This is done by cleaning up heap memory and closing all of the files
+
+  // for all ```` new ```` memory being created, we must free the memory by using ```` delete ```` so that they dont leak
+
+  > leaked memory means that the memory was created (never destroyed). In other words, we filled the memory (flooded) with memory that will no longer be used or usable... thus it is a leak of used memory that can no longer be used by something else in the function call
+
+  #### Custom Deconstructor
+  > if the member variables are initiated on a hea, we must define a custom deconstructor
+
+  ```` cube.h ````
+  ``` c++
+  #pragma once
+
+  namespace cs225 {
+    class Cube {
+      public:
+        Cube();  Cube();
+        Cube(double length);
+        Cube(const Cube & other); 
+        ~Cube(); // used as a custom deconstructor in order to free heap 'new' memory
+
+
+      private:
+        double length_; 
+    };
+  }
+
+  ```
+
+  ```` cube.cpp ````
+  ``` c++
+  namespace cs225 {
+  Cube::Cube() {
+    length_ = 1;
+  }
+
+  Cube::Cube(double length) {
+    length_ = length;
+  }
+
+  Cube::Cube(const Cube & other) {
+    length_ = other.length_;
+   }
+
+  Cube::~Cube() {
+   …..//define your destructor HERE
+   delete length_;
+  }
+}
+
+  ```
 
   #### Automatic Destructor
+  > if no other de-constructor is defined, then an automatic destructor is instantiated. It calls the destructor of the members w/out doing anything else
+
+  // stack memory is reclaimed (cleared) and now usable again
+
+  // heap memory is 'deleted' and now usable again
 
   </details>
+
+
+  ### Lecture 7 : Overloading 1/30
+  <details> <summary> <span style="color: green"> Lecture 7 </span></summary>
+
+  #### Overload operators in cpp
+  > we use the example of overloading the "+" and "=" operator
+
+  ```` cube.h ````
+  ``` c++
+  Cube operator+(const Cube & other) const;
+  Cube & operator=(const Cube & other);
+  /*Ex: Cube a,b,c;
+  C = a+b
+  The const inside () means do not modify b
+  The const after () means do not modify a
+  */
+
+
+  ```
+
+  ```` cube.cpp ````
+  ``` c++
+  Cube Cube::operator+(const Cube & other) const {
+    return joinCube(*this, other);
+  }
+
+  Cube & Cube::operator=(const Cube & other) {
+    length_ = other.length_; 
+    Rreturn *this *this;
+  }
+
+
+  ```
+
+  ##### Defining "+" operator
+  > if we were to do "Cube cube3 = cube1 + cube2" we must overload the '+' operator to 
+  
+  ##### Assignment "=" operator
+  > 
+
+  #### Rule of Three
+
+  #### Inheritance
+
+
+
+  </details>
+
+  ### Lecture 8 : Inheritance & Templates 2/1 (sept 10)
+  <details> <summary> <span style="color: green"> Lecture 8 </span></summary>
+
+  #### Assignment Operator
+
+  #### Virtual functions
+
+  #### Pure virtual functions
+
+  #### Abstract Classes
+
+  #### Virtual Destructor
+
+  #### Abstract Data Type (ADT)
+
+  #### Templates: a dynamic data type
+
+
+  </details>
+
+  ### Lecture 9 : Templates and List Abstract Data Types (ADT) 2/4 (Sept 13)
+  <details> <summary> <span style="color: green"> Lecture 9 </span></summary>
+
+  </details>
+
+  ### Lecture 10 : List Implementations 2/6 (Sept 15)
+  <details> <summary> <span style="color: green"> Lecture 10 </span></summary>
+  
+  </details>
+
+  ### Lecture 11 : Lists 2/8 (Sept 17)
+  <details> <summary> <span style="color: green"> Lecture 11 </span></summary>
+  
+  </details>
+
+  ### Lecture 12 : Stacks and Queues 2/8 (Sept )
+  <details> <summary> <span style="color: green"> Lecture 12 </span></summary>
+  
+  </details>
+
+  ### Lecture 13 : Iterators pt 1 2/11 (sept 20) 
+  <details> <summary> <span style="color: green"> Lecture 13 </span></summary>
+  
+  </details>
+
+  ### Lecture 14 : Iterators pt 2 2/11 (sept 22)
+  <details> <summary> <span style="color: green"> Lecture 14 </span></summary>
+  
+  </details>
+
+  ### Lecture 15 : Tree Intro pt 2 2/13 (sept 24)
+  <details> <summary> <span style="color: green"> Lecture 15 </span></summary>
+  
+  </details>
+
+
 
 
 </details>
