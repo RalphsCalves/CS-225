@@ -28,7 +28,7 @@ Below are the notes that I took for Data Structures @UIUC.
   > "#ifndef CUBE_H_ , #define CUBE_H_, #endif" is the same as above
 
   ```` // cube.h: ```` Equivalent Implementation
-  ```
+  ``` c++
   #ifndef CUBE_H_ 
   #define CUBE_H_
 
@@ -40,7 +40,7 @@ Below are the notes that I took for Data Structures @UIUC.
   #endif 
   ```
 
-  ```
+  ``` c++
   #pragma once
 
   class Cube {
@@ -70,7 +70,7 @@ Below are the notes that I took for Data Structures @UIUC.
   ```` std::cout ```` standard namespace includes cout, vector, queue, etc
 
   ```` // cube.h declares namespace class Cube````
-  ```
+  ``` c++
   #pragma once 
   namespace cs225 {
     class Cube {
@@ -83,7 +83,7 @@ Below are the notes that I took for Data Structures @UIUC.
     };
   ```
   ```` // cube.cpp implementation of func in the Cube Class in cs225 namespace ````
-  ```
+  ``` c++
   #include "Cube.h" 
   namespace cs225 {
     double Cube::getVolume() {
@@ -97,7 +97,7 @@ Below are the notes that I took for Data Structures @UIUC.
     
   ```
   ```` // main.cpp using the objects of Cube class ````
-  ```
+  ``` c++
   #include “Cube.h”
   #include <iostream>
 
@@ -115,7 +115,7 @@ Below are the notes that I took for Data Structures @UIUC.
   ```` Custom Contructor: ```` user may set the initialization 
 
   ```` // cube.h ````
-  ```
+  ``` c++
   /* ... */
   class Cube{
     public:
@@ -124,7 +124,7 @@ Below are the notes that I took for Data Structures @UIUC.
   /* ... */
   ```
   ```` // cube.cpp ````
-  ```
+  ``` c++
   /* ... */
 
   Cube::Cube() { //define default constructor
@@ -135,7 +135,7 @@ Below are the notes that I took for Data Structures @UIUC.
   }
   ```
   ```` // main.cpp ````
-  ```
+  ``` c++
   /* ... */
   main(){
     cs225::Cube c; // initializes/uses automatic Cube constructor w length 1
@@ -148,7 +148,7 @@ Below are the notes that I took for Data Structures @UIUC.
   > once the value of j changes, the value of i changes changes and vice versa
 
 ```` main.cpp ````
-```
+``` c++
 int main {
      int i = 7;
 
@@ -184,14 +184,14 @@ int main {
 
   > a reference shares the same memory addr (w the original variable) but also takes up its own 'spot' in the run time stack
 
-  ```
+  ``` c++
   int i = 3;
   int *ptr = &i; // a ptr to variable 'i'. ptr stores addr of i
   int &ref = i;  // a reference (or alias) for i
   ```
 
   ```` Initialization of a pointer variable ````
-  ```
+  ``` c++
   int  a = 10;
   int *p = &a; // do not do it this way. looks weird becuz p = &a is better
 
@@ -204,7 +204,7 @@ int main {
   ```
 
   > pointers can be re-assigned. 
-  ```
+  ``` c++
   int a = 5;
   int b = 6;
   int *p;
@@ -213,13 +213,13 @@ int main {
   ```
 
   ```` Initialization of a reference variable ````
-  ```
+  ``` c++
   int  a = 10;
   int &p = a; // addr of p takes the value of 10
   ```
 
   > references canNOT be re-assigned: ERROR for MULTIPLE DECLARATION
-  ```
+  ``` c++
   int a = 5;
   int b = 6;
   int &p = a;
@@ -228,7 +228,7 @@ int main {
 
   #### Indirection Operators
   > You can have pointers to pointers offering extra levels of indirection
-  ```
+  ``` c++
   int  a = 10;
   int *p;
   int **q;
@@ -238,7 +238,7 @@ int main {
   ```
 
   > Whereas references only offer one level of indirection
-  ```
+  ``` c++
   int  a = 10;
   int *p;
   p = &a;   // value of 'p' = addr of 1
@@ -284,7 +284,7 @@ int main {
   > calls obj's destructor, marks mem as freed
 
   ```` heap1.cpp ````
-  ```
+  ``` c++
   int main() {
      int *p = new int;          //pointer on stack, int on heap
      Cube *c = new Cube(10);    //pointer on stack, object on heap
@@ -301,7 +301,7 @@ int main {
   > once the value of j changes, the value of i changes changes and vice versa
 
   ```` reference.cpp ```` // i and j are the same thing, they change together 
-  ```
+  ``` c++
   #include <iostream>
 
   int main() {
@@ -323,7 +323,7 @@ int main {
   > A declaration of a reference variable would be like: 
 
   ```` ALIASES INIT: space in between & and variable name ````
-  ```
+  ``` c++
   int a = 3
   int & b = a;        //declaring a reference variable  
 
@@ -332,7 +332,7 @@ int main {
   > this process should not be confused with the case of getting the memory address of a variable which would also involved with '&' operator, as the example shown below:
   
   ```` REFERENCE INIT: no space in between & and variable name ````
-  ```
+  ``` c++
   Cube c;
   std::cout << "Mem address storing c: " << &c << std::endl;
 
@@ -353,7 +353,7 @@ int main {
 
   ```` joinCubes-byValue.cpp ````
 
-  ```
+  ``` c++
   Cube joinCubes(Cube c1, Cube c2) {
     double totalVolume = c1.getVolume() + c2.getVolume();
     ...
@@ -374,7 +374,7 @@ int main {
   the obj passed in is a pointer of the original obj. By changing it, we do change the original. More efficient because we treat the memory. But more risky because we can get an invalid paramter (NULL) that gets passed in
 
   ```` joinCubes-byPointer.cpp ````
-  ```
+  ``` c++
   Cube joinCubes(Cube * c1, Cube * c2) {
     double totalVolume = c1->getVolume() + c2->getVolume();
     ...
@@ -393,7 +393,7 @@ int main {
 
   ```` joinCubes-byRef.cpp ````
 
-  ```
+  ``` c++
   Cube joinCubes(Cube & c1, Cube & c2) {
     double totalVolume = c1.getVolume() + c2.getVolume();
     ...
@@ -422,7 +422,7 @@ int main {
 
   ```` joinCubes-byRef-const.cpp ````
 
-  ```
+  ``` c++
   Cube joinCubes(const Cube & c1 , const Cube & c2) {
     double totalVolume = c1.getVolume() + c2.getVolume();
     ...
@@ -445,7 +445,7 @@ int main {
 
   ```` Custom Copy Constructor ```` passed by reference
 
-  ```
+  ``` c++
   Cube(const Cube & other){
     ...
   };
@@ -463,7 +463,7 @@ int main {
   > the copy constructo is called when the parameter is passed-in (and when the reslt is returned)
 
   ```` joinCubes-byValue.cpp ````
-  ```
+  ``` c++
   Cube joinCubes(Cube c1, Cube c2) {
     double totalVolume = c1.getVolume() + c2.getVolume();
     ...
@@ -477,7 +477,7 @@ int main {
   > it tells the compiler to 'shallow' copy instance variables to the variables in "other"
 
   ```` Tomer.h ````
-  ```
+  ``` c++
   #pragma once
   #include "cs225/Cube.h"
   using cs225::Cube;
@@ -497,7 +497,7 @@ int main {
   ```
 
   ```` Tower.cpp ````
-  ```
+  ``` c++
   Tower::Tower(const Tower & other) : cube_(other.cube_), ptr_(other.ptr_), ref_(other.ref_) {
     //every variable copied
     //nothing needed in the body
