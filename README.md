@@ -7,7 +7,7 @@ Below are the notes that I took for Data Structures @UIUC.
 ## Lectures:
 <details> <summary> Click for ALL NOTES </summary>
   
-  ### Lecture 1: Introduction
+  ### Lecture 1: Introduction jan 19 (1/14)
   <details> <summary> <span style="color: green"> Lecture 1 </span> </summary>
 
   #### Variables Description
@@ -54,7 +54,7 @@ Below are the notes that I took for Data Structures @UIUC.
   
   </details>
 
-  ### Lecture 2: Classes
+  ### Lecture 2: Classes jan 21 (1/16)
   <details> <summary> <span style="color: green"> Lecture 2 </span></summary>
 
   #### Public vs Private
@@ -168,7 +168,7 @@ int main {
 
   </details>
 
-  ### Lecture 3: Memory
+  ### Lecture 3: Memory jan 24 (1/18)
   <details> <summary> <span style="color: green"> Lecture 3 </span></summary>
 
   #### Variable, Reference Variables, Pointers
@@ -271,7 +271,7 @@ int main {
 
   </details>
   
-  ### Lecture 4 : Heap Memory
+  ### Lecture 4 : Heap Memory jan 26 (1/23)
   <details> <summary> <span style="color: green"> Lecture 4 </span></summary>
 
   #### Heap Memory Description
@@ -342,7 +342,7 @@ int main {
 
   </details>
 
-  ### Lecture 5 : Function & Parameter
+  ### Lecture 5 : Function & Parameter jan 28 (1/25)
   <details> <summary> <span style="color: green"> Lecture 5 </span></summary>
 
   #### Function Parameters
@@ -437,7 +437,7 @@ int main {
 
   </details>
 
-  ### Lecture 6 : LifeCycle & Constructors
+  ### Lecture 6 : LifeCycle & Constructors jan 31 (1/28)
   <details> <summary> <span style="color: green"> Lecture 6 </span></summary>
 
   #### Copy Constructors
@@ -496,7 +496,7 @@ int main {
 
   ```
 
-  ```` Tower.cpp ````
+  ```` Tower.cpp: Automatic Copy Constructor which makes a copy of every variable ````
   ``` c++
   Tower::Tower(const Tower & other) : cube_(other.cube_), ptr_(other.ptr_), ref_(other.ref_) {
     //every variable copied
@@ -590,13 +590,13 @@ int main {
   </details>
 
 
-  ### Lecture 7 : Overloading 1/30
+  ### Lecture 7 : Overloading and Inheritance feb 2 (1/30)
   <details> <summary> <span style="color: green"> Lecture 7 </span></summary>
 
   #### Overload operators in cpp
   > we use the example of overloading the "+" and "=" operator
 
-  ```` cube.h ````
+  ```` cube.h: Initialize the operation overloads of '+' and '=' ````
   ``` c++
   Cube operator+(const Cube & other) const;
   Cube & operator=(const Cube & other);
@@ -606,91 +606,1051 @@ int main {
   The const after () means do not modify a
   */
 
-
   ```
 
-  ```` cube.cpp ````
+  ```` cube.cpp: implement each of the overloads for '+' and '=' ````
+  > (1) given that the '+' operator in math reads from left to right. we must use the hot variable 'this' to represent the left object and use 'other' to represent the right object when we use the overloaded '+' operator, we essentially take the left (*this) and right (other) objects and "join" them togerther using the joinCube function
+
+  > (2) given that '=' needs to return an object type Cube, we must look at the '=' symbol as a sort of deep copy constructor. If we look at it as a deep copy constructor, we can see that the 'other' (obj directly to the right of the '=') will to passed in. The output of the deep copy constructor will be the a new Cube that has a new length of the cube that was passed in. when we see 'c3 = c1 + c2' the operation reads "set the c3 (Cube obj) to a new Cube that is the joined version of c2 (*this)(Cube Obj) and c1 (other)(Cube Obj)." NOW if we were to do 'c3 = c2' what we will be saying is "set the c3 (Cube obj) to a new Cube that is c2 (Cube Obj). 
   ``` c++
+  // READ COMMENT (1) above
   Cube Cube::operator+(const Cube & other) const {
     return joinCube(*this, other);
   }
 
+  // READ COMMENT (2) above
   Cube & Cube::operator=(const Cube & other) {
     length_ = other.length_; 
-    Rreturn *this *this;
+    return *this;
   }
+  ```
+  
+  ##### Defining "+" operator
+  > if we were to do "Cube cube3 = cube1 + cube2" we must overload the '+' operator to essentially take the left and right values of the + and joing them. 
+  
+  ```` IMPORTANT: ```` one thing to note about the overloading the assignment operator is that we are essentially creating a new copy of what ever is being passed in on the right side of the '=' symbol. Thus, there will 99% of the time be a case where the left (*this) and right (other) are different. In that 99% chance, we will want to destroy (or delete) the memory of the 'old' left side to free up that memory and replace that memory (set it to) with the 'new' right hand side object. 
 
+  ##### Assignment "=" operator
+  > look at it as a copy constructor. ESSENTIALLY, this operation overload of the '=' allows us to "RE-USE" the '=' symbol for the purposes other than numbers, chars, and primary variable types. We can essentially run operations on a variable of any type that is not a primary variable type (in this case, a Cube Obj type) and set the thing on the left (*this) to the return variable on the right (other) as long as they are the same variable type
+
+  ``` c++
+  Cube & Cube::operator=(const Cube & other){
+    if (this != &other) { //If I’m not copying myself
+      _destroy();
+      _copy(other);
+    }
+    return *this;
+  };
 
   ```
 
-  ##### Defining "+" operator
-  > if we were to do "Cube cube3 = cube1 + cube2" we must overload the '+' operator to 
-  
-  ##### Assignment "=" operator
-  > 
 
   #### Rule of Three
+  > for every time that an operation overload is needed, you must define all of the below
+
+  - assignment operator
+  - copy constructor
+    - use ' if (this == &other) { return *this; } in order to prevent from copying itself
+  - destructor
+
 
   #### Inheritance
+  > Classes cna be used to extend the build of other classes. Inheritance describes the extension of the base class to the derived class (the inheriting class). In the case below, everything in shpae public is now part of and derived in the square public. (NO PRIVATE VARIABLES WERE INHERITED FROM SHAPE)
 
+  ```` square.h ````
+  ``` c++
+  #pragma once
+  #include "Shape.h"
+  class Square : public Shape {
+  //syntax of inherit
+    public:
+      Square();
+      Square(double length);
+      double getArea() const;
+  private: };
+  ```
 
+  ```` square.cpp ````
+  ``` c++
+  Square::Square() { }
+  Square::Square(double length) : Shape(length) { }
 
+  double Square::getArea()
+  const {
+    return getLength() * getLength();
+  }
+
+  ```
   </details>
 
-  ### Lecture 8 : Inheritance & Templates 2/1 (sept 10)
+  ### Lecture 8 : Inheritance & Templates feb 4 (2/1)
   <details> <summary> <span style="color: green"> Lecture 8 </span></summary>
 
-  #### Assignment Operator
-
   #### Virtual functions
+  > the purpose of a virtual function is to override the function of the base class with the a more 'specified' function that will be used in the derived class. If you would like for a function in a base class to be completely overwritten by all of its child (derived class) functions, then you may want to implement a 'pure virtual' function, which means that the entirety of that function is going to be written by the derived function and that for every derived class you create, you must implement that purely virtual function in order to make it specific to the derived class. 
+  ```` cube.cpp (general cube)````
+  ``` c++
+  Cube::print_1() {
+  cout << "Cube" << endl;
+  }
+  Cube::print_2() {
+    cout << "Cube" << endl;
+  }
+  virtual Cube::print_3() { 
+    cout << "Cube" << endl;
+  }
+  virtual Cube::print_4() {
+    cout << "Cube" << endl;
+  }
+  // In .h file:
+  virtual print_5() = 0; // pure virtual function
+  ```
+
+  ```` RubiksCube.cpp (a specific type of cube) ````
+  ``` c++
+  // No print_1() in
+  RubikCube.cpp 
+
+  RubikCube::print_2() { 
+    cout << "Rubik" << endl;
+  }
+
+  // No print_3() in
+  RubikCube.cpp
+
+  RubikCube::print_4() {
+    cout << "Rubik" << endl;
+  }
+
+  RubikCube::print_5() {
+    cout << "Rubik" << endl;
+  }
+  ```
 
   #### Pure virtual functions
 
   #### Abstract Classes
+  - one or more pure virtual functions
+  - cannot create an instance of an abstract class... must create an instance of the derived class Cube c1 (no good), RubiksCube rc1 (good)
 
   #### Virtual Destructor
 
   #### Abstract Data Type (ADT)
+  > given that we are able to do basic operations on types of data (overloading symbols to accomodate for new types of objs, virtual functions to accomodate for making general obj types/class more specific), we can essentially create any abstract data type (ADT). Creating an ADT allows us to change the functionality of a type of data. In other words, overloading symbols allows us to do primal operations on the new type of data that we want to create &&& making class functions and classes virtual allows us to create specific variations of the same type of data (child inherits from the parent) (derived inherits from the base)
 
   #### Templates: a dynamic data type
+  > given that we are able to create various types of data (ADTs). we can create functions that allows us 'template' a function for any given data type. given any number of data types (abstract and not abstract) we can create a templated function that can do the same function but for all those data types. As long as the return types are consistent, and the variables of the passed in templated function fit the needs for all ADTs, we can utilize a template function to accomodate the same operation for any data type. 
 
 
   </details>
 
-  ### Lecture 9 : Templates and List Abstract Data Types (ADT) 2/4 (Sept 13)
+  ### Lecture 9 : Templates and List Abstract Data Types (ADT) feb 7 (2/4)
   <details> <summary> <span style="color: green"> Lecture 9 </span></summary>
 
+  ^^^ idk why they slow. but ```` Abstract Class ```` ```` Virtual Destructor ```` ```` Abstract Data Type (ADT) ```` and ```` Templates: used for dynamic data types ```` are all above
+
+  #### Types of Implementation of a List
+  
+  ``` c++
+  template <typename T>
+  T maximum(T a, T b) {
+      T result;
+      result = (a > b) ? a : b;
+      return result;
+  }
+
+  ```
+
+  ##### Array
+  > Common Array. It is a sequential block of items, a list with a set number of memory blocks that can be filled
+
+  ##### Linked Memory
+  > More commonly known as a linked list. Linked Memory generally has two attributes (variables) that are instantiated in the List Class that you are about to create: node pointer that points to the next block of memory (ListNode *next) and the data that is stored in that particular memory block (T * data)
+
+  ```` List.h ````
+  ``` c++
+  #ifndef LIST_H
+  #define LIST_H
+
+  template <typename T>
+  class List {
+      public:
+            /* ... */
+      private:
+          class ListNode {
+                T & data;
+                ListNode * next;
+                ListNode(T & data) : data(data),
+  next(NULL) { }
+          };
+  }; 
+  
+  #endif
+  ```
+
+  More on List function implementations are made in the next lecture
+
   </details>
 
-  ### Lecture 10 : List Implementations 2/6 (Sept 15)
+  ### Lecture 10 : List Implementations feb 9 (2/6)
   <details> <summary> <span style="color: green"> Lecture 10 </span></summary>
+  > for now, we know how to initialize a linkedlist and its basic variables that make it a linkedlist (particularly a singly linked list). In this section, we will go over how to implement the following functions that will help us do operations to the linkedlist
+
+  #### Inserting Node at Front of the LinkedList
+  1. initialize some memory in the heap for a 'new' object of type ListNode with data 't' 
+  2. set the new ListNode's 'next' to the current head of the LinkedList
+  3. set the list's head to the new ListNode
+  > always set the new ListNode's next (later you will deal with prev) to the location before changing the location  of the old node
+  ```` .cpp file ````
+  ``` c++
+  template <typename T>
+  void List<T>::insertAtFront(T & t, unsigned index) {
+      ListNode * node = new ListNode(t);
+      node->next = head_;
+      head_ = node;
+  }
+  ```
+
+  #### Finding an Element in the LinkedList at the 'index' spot
+  0. first we have to realize that the return type of this function (_index) is a *&, which means that we will have a ```` pointer to a location ````
+  1. check if index == 0. if index = 0, return the head of the LinkedList. else, move on
+  2. initialize a pointer to the head 'thru' or 'iter' (the start of the linked list) 
+  3. iterate the 'index' number of times through that list by setting the pointer to the point to the next node 
+  4. once the pointer 'thru' has iterated through the list a total of 'index' times, return the 'next' node which is the ```` pointer to the location ```` of the node that we are trying to return
+
+  ```` .cpp file ````
+  ``` c++
+  // Iterative Solution:
+  template <typename T>
+  typename List<T>::ListNode *& List<T>::_index(unsigned index) {
+  //return a reference to a ListNode pointer
+  
+    if (index == 0) {
+      return head;
+    } else {
+      ListNode *thru = head;
+      for (unsigned i = 0; i < index - 1; i++) {
+        thru = thru->next;
+      }
+      return thru->next;
+
+    }
+  }
+  ```
+  > the reason why we return the thru->next is because we are trying to return the point to the location of the node... not the actual node itself. 
+
+  #### Overloading the [] operator
+  > we can make the linkedlist behave like an array by overloading the "[]" symbols. We will want to return the data of within the node, not a pointer to the location of the data. We re-use the _index() function in order to access the pointer to the location. Now we will want to take the data at that location, so the '&' will allow us to 
+  
+  0. first we must realize that the return type of this operation overload is a &, which means that we will have a ```` location ````
+  1. initialize a ListNode ```` pointer to a location ```` and index through the linked list the same way we would index and access the data element in an array. 'd' will now be pointing to the location of the index
+  2. return the data at that indexed element in the linked list (return the data at the location of that index)
+
+  ```` List.hpp ````
+  ``` c++
+  template <typename T>
+  T & List<T>::operator[](unsigned index) {
+    ListNode *& d = _index(index);
+    return d -> data;
+  }
+  ```
+
+
+  #### Inserting a Node in the middle of the LinkedList
+  0. we must first realize that the return type of this function is a void. This is because we will not be outputting anything, we will be doing an operation on a linked list and that is it
+  1. initialize a ListNode 'node' ```` pointer to a location ```` which will index through the linkedlist the same way we found an element at a given index. node is returned as a pointer to the location of the indexed element of the linkedlist
+  2. now we initialize a new ListNode in the Heap memory with the data set to 't'. Notice that the type of variable newNode is a pointer. We want the newNode to be a pointer because it holds the data as 't' and has to have the other attribute of a pointer to the next value
+  3. we set the newNode's next to the node that we indexed
+  4. then we set the old node to be the newNode the same way we inserted a ListNode at the front of the LinkedList
+  > SIMILAR TO INSERTING NODE AT FRONT: always set the new ListNode's next (later you will deal with prev) to the location before changing the location of the old node
+
+  ```` List.hpp ````
+  ``` c++
+  template <typename T>
+  void List<T>::insert(const T & t, unsigned index) {
+    ListNode *& node = _index(index);
+    ListNode * newNode = new ListNode(t);
+    newNode -> next = node;
+    node = newNode;
+  }
+  ```
+
+  #### Removing a Node from the LinkedList
+  0. realize that the return type of this function is a location. We do this because
+  1. initialize a ListNode 'node' ```` pointer to a location ```` which will index through the linkedlist the same way we found an element at a given index. node is returned as a pointer to the location of the indexed element of the linkedlist
+  2. now we initialize a temporary 
+  3. 
+  4. 
+  5. 
+  6. 
+  > 
+
+  ```` ````
+  ``` c++
+  template <typename T>
+  T & List<T>::remove(unsigned index) {
+    ListNode *& node = _index(index);
+    ListNode * temp = node;
+    T & data = node -> data;
+    node = node -> next;
+    delete temp;
+    return data;
+  }
+  ```
+
   
   </details>
 
-  ### Lecture 11 : Lists 2/8 (Sept 17)
+  ### Pit Stop: Big O Notation
+  <details> <summary> <span style="color: green"> Big O Notation </span></summary>
+  ```` Definition: ````
+  > 
+
+  ```` How to Calculate Big O: ````
+  > 
+
+  | O(x) | Description | Common Algorithms with this Time Complexity | Common algorithms with this Space Complexity |
+  | --- | --- | --- | --- |
+  | O(log(n)) | --- | --- | --- |
+  | O(1) |  |  |  |
+  | O(k) |  |  |  |
+  | O(n) |  |  |  |
+  | O(n^2) |  |  |  |
+  | O(n^k) |  |  |  |
+  | O(k^n) |  |  |  |
+  </details>
+
+
+  ### Lecture 11 : Lists feb 11 (2/8)
   <details> <summary> <span style="color: green"> Lecture 11 </span></summary>
   
+  #### Different Implementations of a List
+  > There are arrays and singly linked lists.
+  ```` ArrayLists: ```` sequential blocks of memory where one element follows immediately after the other
+  ```` Singly Linked Lists: ```` same as array, but sequentially linked via pointer to the next (or prev) elem
+
+  ##### Singly Linked Lists
+  > 
+
+  ```` List.h ````
+  ``` c++
+  #ifndef LIST_H
+  #define LIST_H
+
+  template <typename T>
+  class List {
+      public:
+            /* ... */
+      private:
+          class ListNode {
+                T & data;
+                ListNode * next;
+                ListNode(T & data) : data(data),
+  next(NULL) { }
+          };
+  }; 
+  
+  #endif
+  ```
+  ##### Array List
+  - has a mamimum size
+  - you can directly point into the array elem
+
+  ```` ArrayList.h ````
+  ``` c++
+  #pragma once
+  template <typename T>
+  class List {
+    public:
+      /* ... */
+    private:
+      T * arr_;      // the content array
+      int capacity;  // the maximum size possible;
+                        the allocated array size
+      int count;     // the size in use; the number
+                        of current elements
+  };
+  ```
+
+
+
+  ##### Insert/Remove at Front
+
+  ```` LinkedList Method [O(1)]: ```` 
+  > only one iteration
+  1. init new ListNode
+  2. set new ListNode-> next to list's head
+  3. set head to new ListNode
+
+  ```` ArrayList Method  [O(1)]:````
+  > method 1 O(n): every time we run out of space, we create a new_array and copy all of the n elems from old_array to the new one, thus O(n) in space
+  1. create a new_array of length old_length + 1
+  2. set 0th elem to new head
+  3. copy the old_array into new array
+
+  > method 2 O(1): ONLY 1 element is being added. THERE IS NO Copying of old arrays into a new array that occurs in this method
+  1. in addition to the old array, keep the old array and ADD a new_array of length old_length
+  2. set 0th elem to new 0th elem
+  2. THERE IS NO NEED TO copy the old_array into new array since we will just be adding a new array of length old_array and then just inserting the elem into that array
+
+  ##### Insert afterat a given element
+
+  ```` LinkedList Method [O(1)]: ````
+
+  ```` ArrayList Method  [O(n)]:````
+
+  ##### Remove after a given element
+
+  ```` LinkedList Method [O(1)]: ````
+
+  ```` ArrayList Method  [O(n)]:````
+
+  ##### Insert a n arbitrary element
+
+  ```` LinkedList Method [O(n)]: ````
+
+  ```` ArrayList Method  [O(n)]:````
+
+  ##### Remove at an arbitrary location
+
+  ```` LinkedList Method [O(n)]: ````
+
+  ```` ArrayList Method  [O(n)]:````
+
+  
+  #### LinkedList vs ArrayList
+  | --- | Singly Linked Lists | ArrayList |
+  | --- | --- | --- |
+  | Insert/Remove at Front | O(1) | O(1) |
+  | Insert afterat a given element | O(1) | O(n) |
+  | Remove after a given element | O(1) | O(n) |
+  | Insert a n arbitrary element | O(n) | O(n) | 
+  | Remove at an arbitrary location |  O(n) | O(n) |
+
+  #### std::vector
+  > very much like an array, but without a capacity on the number of elements
+  > an insert will take O(n) at most
+  > 'push_back' functino takes O(1) since it adds to the end of the array
+
   </details>
 
-  ### Lecture 12 : Stacks and Queues 2/8 (Sept )
+  #### Stack ADT
+
+  #### Queue ADT
+
+  ### Lecture 12 : Lists, Stacks and Queues feb 14 (2/11)
   <details> <summary> <span style="color: green"> Lecture 12 </span></summary>
   
+  ```` IDK. I THINK I MIGHT HAVE SKIPPED SOMETHING ````
   </details>
 
-  ### Lecture 13 : Iterators pt 1 2/11 (sept 20) 
+  ### Lecture 13 : Iterators feb 16 (2/11)
   <details> <summary> <span style="color: green"> Lecture 13 </span></summary>
   
+  #### Queue Implementation
+
+
+  #### Three Data Storage Strategies
+
+
+  #### Tradeoffs about Three Data Storages
+
+
+  #### Iterators for storages
+
+
   </details>
 
-  ### Lecture 14 : Iterators pt 2 2/11 (sept 22)
-  <details> <summary> <span style="color: green"> Lecture 14 </span></summary>
-  
-  </details>
 
-  ### Lecture 15 : Tree Intro pt 2 2/13 (sept 24)
+  ### Lecture 15 : Tree Intro feb 18 (2/13)
   <details> <summary> <span style="color: green"> Lecture 15 </span></summary>
   
+  #### Trees
+
+  #### Binary Trees
+
+  
   </details>
+
+  ### Lecture 16 : Trees feb 21 (2/15)
+  <details> <summary> <span style="color: green"> Lecture 16 </span></summary>
+  
+  #### Tree Terminology Review
+
+  #### Binary Tree
+
+  #### Computation of Tree Height
+
+  #### Full Tree
+
+  #### Perfect Tree
+
+  #### Complete Tree
+
+  #### Tree Property
+
+  #### Tree Abstract Data Type
+
+  </details>
+
+  ### Lecture 17 : Tree Traversals feb 23 (2/18)
+  <details> <summary> <span style="color: green"> Lecture 17 </span></summary>
+
+  #### Number of NULL Pointers in a Binary Tree
+
+  #### Traversals 
+
+  ```` Pre-Order ````
+  ```` In-Order ````
+  ```` Post-Order ````
+  #### In-Order Print out of the Tree
+
+  #### Level Order Traversal
+  </details>
+
+  ### Lecture 18 : BST feb 25 (2/20)
+  <details> <summary> <span style="color: green"> Lecture 18 </span></summary>
+  
+  #### Traversal vs Search
+  
+  #### BFS ()
+  
+  #### DFS ()  
+  
+  #### Running Time
+  
+  #### Dictionary ADT
+    
+  #### BST   
+  
+  #### Find Function in BST
+  
+  #### Insert in BST
+
+  </details>
+  
+  ### Lecture 19 : BST Remove feb 28 (2/22)
+  <details> <summary> <span style="color: green"> Lecture 19 </span></summary>
+    
+  #### Remove in BST
+  
+  #### Relationship between H and N
+  
+  #### Proof of Induction
+  
+  </details>
+
+  ### Lecture 20 : BST Balance mar 2 (2/25)
+  <details> <summary> <span style="color: green"> Lecture 20 </span></summary>
+  
+  ####   Height of BST
+  
+  ####   Height Balanced-Tree
+  
+  ####  Lowest Point of Imbalance
+
+  ####  BST Rotation
+
+
+
+  </details>
+
+
+  ### Lecture 21 : AVL mar 4 (2/27)
+  <details> <summary> <span style="color: green"> Lecture 21 </span></summary>
+  
+  #### Four BST Rotation
+  
+
+  #### AVL Tree Consideration
+
+   
+  #### Rotations Thereom #1
+  
+
+  #### Rotations Thereom #2
+      
+
+  #### Insertion of AVL
+  
+   
+
+  </details>
+
+
+  ### Lecture 22 : AVL Analysis mar 7 (3/1)
+  <details> <summary> <span style="color: green"> Lecture 22 </span></summary>
+    
+  #### AVL Remove
+  
+
+  #### AVL Summary
+
+   
+  #### BIG-O Definition
+  
+
+  #### AVL Tree Theorem
+   
+   
+  </details>
+
+  ### Lecture 23 : AVL Applications mar 9 (3/4)
+  <details> <summary> <span style="color: green"> Lecture 23 </span></summary>
+
+  #### AVL Summary
+
+
+  #### Red-Black Tree
+
+
+  #### Advantage of AVL (os Balanced BSTs in general)
+
+
+  #### Disadvantages of AVL (or Balances BSTs in general)
+
+
+  #### Standard Map in C++
+
+
+  #### Summary of Everyon Data Structure so far
+
+
+  #### Range based Searching
+
+  
+  </details>
+
+  ### Lecture 24 : B-Trees + B Tree Analysis mar 11 (3/11)
+  <details> <summary> <span style="color: green"> Lecture 24 </span></summary>
+  
+  #### B-Tree Motivation
+
+
+  #### B-Tree (of order m)
+
+
+  #### B-Tree Structure
+
+
+  #### B-Tree Properties
+
+
+  #### Determining the Order of a B-Tree 
+
+
+  #### B-Tree Search
+
+
+
+
+  
+  </details>
+
+  ### Lecture 25 : B-Tree Analysis mar 21 (3/11)
+  <details> <summary> <span style="color: green"> Lecture 25 </span></summary>
+  
+  #### B-Tree Analysis
+
+
+  #### BTree: Minimum number of keys in a BTree of height h and order m:
+
+
+  #### BTree_ Min Total Nodes
+
+
+  #### BTree: Min Total Keys
+
+
+  #### BTree: Max Total Keys
+
+
+  </details>
+
+  ### Lecture 26 : Hashing pt 1 mar 23 (mar 13)
+  <details> <summary> <span style="color: green"> Lecture 26 </span></summary>
+  
+  #### Hashing Introduction
+
+
+  #### Keyspace
+
+
+  #### 
+
+
+  #### A good HASH Function should:
+
+  
+  </details>
+
+  ### Lecture 27 : Hashing pt 2 mar 25 (3/15)
+  <details> <summary> <span style="color: green"> Lecture 27 </span></summary>
+  
+  #### Collision
+
+
+  #### Seperate Chaining
+
+
+  #### Linear Probing
+
+
+  
+  </details>
+
+  ### Lecture 28 : Hashing pt 3 mar 28 (3/15)
+  <details> <summary> <span style="color: green"> Lecture 28 </span></summary>
+  
+  #### Primary Clustering
+
+
+  #### Double Hashing
+
+
+  #### Running Time
+    
+  </details>
+
+  ### Lecture 29 : Heaps mar 30 (3/27)
+  <details> <summary> <span style="color: green"> Lecture 29 </span></summary>
+  
+  #### The Priority Queue/Heap
+
+
+  #### Implementations
+
+
+  #### Tree Structure Implementation: The (min)Heap
+
+
+  #### Insertion
+
+
+  #### Remove
+
+  
+  </details>
+
+  ### Lecture 30 : Heaps and Disjoint Sets apr 1 (3/27)
+  <details> <summary> <span style="color: green"> Lecture 30 </span></summary>
+  
+  #### NOTHING. COMBINED WITH PREV
+
+
+  
+  </details>
+  
+  ### Lecture 31 : Disjoint Sets apr 4 (4/1)
+  <details> <summary> <span style="color: green"> Lecture 31 </span></summary>
+  
+  #### Build Heap Runtime
+
+
+  #### Theorem: BuildHeap based on heapify-down takes O(n) time
+
+
+  #### HeapSort
+
+
+  #### Disjoint Sets
+
+
+  #### Disjoint Sets ADT
+
+
+  #### Implementation #1
+
+
+  #### Union (k1, k2)
+
+  
+  </details>
+  
+  ### Lecture 32 : Graphs apr 6 (4/5)
+  <details> <summary> <span style="color: green"> Lecture 32 </span></summary>
+  
+  #### Disjoint Set Find
+
+
+  #### Smart Unions
+
+
+  #### Union by Size
+
+
+  #### Root== -n
+
+
+  #### Union by Rank
+
+
+  #### Union by Size
+
+
+  #### Path Compression
+
+
+  #### Running Time with Path Compression
+
+
+  #### Panorama of Data Structures
+
+  ##### Array Based (Cache-optimized)
+
+  ##### List/Pointer Based
+
+
+  #### Graphs
+
+
+  #### Graph Vocabulary
+  - verticies
+  - edges
+  - incident edges
+  - degress
+  - adjacent vertex
+  - path
+  - cycle
+  - simple graph
+
+  #### 
+
+  
+  </details>
+  
+  ### Lecture 33 : Graph Implementations apr 8 (4/8)
+  <details> <summary> <span style="color: green"> Lecture 33 </span></summary>
+  
+  #### Continued Graph Vocabulary 
+  - Sub Graph
+  - Complete Sub graph
+  - Connected Sub graph
+  - Connected Component
+  - Acyclic Sub graphs
+  - spanning trees
+  - Minimal Number of Edges
+  - Maximal number of edges
+  - Sum of all degrees of all vertices = 2*m
+  - Theorem: Lemm1
+  - Proof
+  -- Base Case
+  -- Inductive Hypothesis
+  --- Suppose
+  --- Partition
+  --- Count Edges
+
+  #### Graph ADT
+  -- Data
+  -- Functions
+
+  #### Graph Implementations #1 : Edge Lists
+  -- Vertex Collections
+  -- Edge Collections
+  -- Running Time
+  --- Insert Vertex
+  --- Remove Vertex
+  --- areAdjacent
+  --- insertEdge
+  --- incidentEdges
+
+
+  
+  </details>
+
+  ### Lecture 34 : Graph Implementations and Traversals apr 11 (4/10)
+  <details> <summary> <span style="color: green"> Lecture 34 </span></summary>
+  
+  #### Graph ADT
+
+
+  #### Graph Implementation 1: Edge List
+
+
+  #### Graph Implementation 2 : Adjacency Matrix
+
+
+  ##### Insert data into the matrix
+
+
+  ##### Remove a vertex
+
+  
+  </details>
+  
+  ### Lecture 35 : Traversals (nov 10)
+  <details> <summary> <span style="color: green"> Lecture 35 </span></summary>
+  
+  #### Graph ADT
+
+
+  #### Question: Implementation 2 runs in either O(1) or O(n), while Implementation 1 runs in either O(1) or O(m). Which one is better?
+
+
+  #### Graph Implementation 3 : ADJ List
+
+
+  #### 
+
+  
+  </details>
+  
+  ### Lecture 36 : Graph Traversal DFS and Minimum Spanning Tree (nov 12)
+  <details> <summary> <span style="color: green"> Lecture 36 </span></summary>
+  
+  #### 
+
+
+  #### 
+
+
+  #### 
+
+
+  #### 
+
+  
+  </details>
+
+  ### Lecture 37 : Minimum Spanning Tree (MST) pt 1 (nov 15)
+  <details> <summary> <span style="color: green"> Lecture 37 </span></summary>
+  
+  #### 
+
+
+  #### 
+
+
+  #### 
+
+
+  #### 
+
+  
+  </details>
+  
+  ### Lecture 38 : Minimum Spanning Tree (MST) pt 2 (nov 17)
+  <details> <summary> <span style="color: green"> Lecture 38 </span></summary>
+  
+  #### 
+
+
+  #### 
+
+
+  #### 
+
+
+  #### 
+
+  
+  </details>
+  
+  ### Lecture 39 : Minimum Spanning Tree (MST) pt 3 (nov 19)
+  <details> <summary> <span style="color: green"> Lecture 39 </span></summary>
+  
+  #### 
+
+
+  #### 
+
+
+  #### 
+
+
+  #### 
+
+  
+  </details>
+
+  ### Lecture 40 : End of MST and Single Source Shortest Path (SSSP) (nov 29)
+  <details> <summary> <span style="color: green"> Lecture 40 </span></summary>
+  
+  #### 
+
+
+  #### 
+
+
+  #### 
+
+
+  #### 
+
+  
+  </details>
+
+
+  ### Lecture 41 : All Pairs Shortest Path (APSP) (dec 01)
+  <details> <summary> <span style="color: green"> Lecture 41 </span></summary>
+  
+  #### 
+
+
+  #### 
+
+
+  #### 
+
+
+  #### 
+
+  
+  </details>
+
+  ### Lecture 42 : Summary (dec 03)
+  <details> <summary> <span style="color: green"> Lecture 42 </span></summary>
+  
+  #### 
+
+
+  #### 
+
+
+  #### 
+
+
+  #### 
+
+  
+  </details>
+
+  ### Lecture 43 : Max Flow (dec 06)
+  <details> <summary> <span style="color: green"> Lecture 43 </span></summary>
+  
+  #### 
+
+
+  #### 
+
+
+  #### 
+
+
+  #### 
+
+  
+  </details>
+
+  ### Lecture 44 : Review (dec 08)
+  <details> <summary> <span style="color: green"> Lecture 44 </span></summary>
+  
+  #### 
+
+
+  #### 
+
+
+  #### 
+
+
+  #### 
+
+  
+  </details>
+  
+  ### CONGRATS YOU HAVE FINISHED CS 225 LECTURES
+  > Message from Author. I would like to first give credit to all of the Professor, TAs and UAs at UIUC CS255 for all of the notes and lectures
 
 
 
