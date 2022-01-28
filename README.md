@@ -1032,16 +1032,20 @@ int main {
   > an insert will take O(n) at most
   > 'push_back' functino takes O(1) since it adds to the end of the array
 
-  </details>
-
   #### Stack ADT
 
   #### Queue ADT
+
+  
+  </details>
+
+
 
   ### Lecture 12 : Lists, Stacks and Queues feb 14 (2/11)
   <details> <summary> <span style="color: green"> Lecture 12 </span></summary>
   
   ```` IDK. I THINK I MIGHT HAVE SKIPPED SOMETHING ````
+
   </details>
 
   ### Lecture 13 : Iterators feb 16 (2/11)
@@ -1051,10 +1055,43 @@ int main {
 
 
   #### Three Data Storage Strategies
+  > In the same way that we can pass/return by value, reference, and pointer... we can use the same concept to storing data, storing data by value, reference, and pointer. 
 
+  ``` c++
+  T & data; // store by reference 
+  T * data; // store by pointer
+  T data; // store by value
+  ```
 
   #### Tradeoffs about Three Data Storages
 
+  ##### Data Life Cycle Management
+  ```` By reference : ```` a reference is an alias to a variable. Storing a reference means that we do not own the data because it is somewhere on the clients stack. When the client's code finishes, the data is going to be deleted. 
+
+
+  ```` By pointer : ```` a pointer has its own memory. Similar to the storing a reference variable, it points to memory that we do not control. The client code owns the memory and when it finishes, the memory is going to be freed. 
+
+
+  ```` By value :  ```` storing a value by value means that we are passing in a copy. This means that we are complete in charge of what happens to that data
+
+
+  ##### Storing NULL as the data
+  ```` By reference : ```` a reference can never be a NULL, this we cannot have a NULL reference variable stored
+
+
+  ```` By pointer : ```` a pointer can hold a NULL value, thus we can store it
+
+
+  ```` By value :  ```` we create an object (by custom constructor or default constructor), thus the data will never be NULL
+
+  ##### Effects on stored data when the data is manipulated from user code (safety)
+  ```` By reference : ````
+
+
+  ```` By pointer : ````
+
+
+  ```` By value :  ````
 
   #### Iterators for storages
 
