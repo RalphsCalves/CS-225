@@ -1757,13 +1757,13 @@ Below are all the information about the changes I made on the labs
   <details> <summary> <span style="color: green"> lab_memory </span></summary>
 
   #### Description
-  > 'replace with lab concept' 
+  > this lab is all about memory checking utility (valgrind). Valgrind is commonly used to detect memory errors and leaks when coding. 
 
   #### Changed Files: 
-  ```` file1 ```` ```` file2 ```` ```` file3````
+  ```` allocator.cpp ```` ```` file2 ```` ```` file3````
 
   #### Instructions
-  ```` file1: ```` 
+  ```` allocator.cpp: ```` 
   
   ```` file2: ```` 
   
