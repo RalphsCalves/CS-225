@@ -1734,13 +1734,13 @@ Below are all the information about the changes I made on the labs
   <details> <summary> <span style="color: green"> lab_debug </span></summary>
 
   #### Description
-  > 'replace with lab concept' 
+  > 'replace with lab concept' Segmentation Faults, 
 
   #### Changed Files: 
-  ```` file1 ```` ```` file2 ```` ```` file3````
+  ```` sketchify.cpp ```` ```` file2 ```` ```` file3````
 
   #### Instructions
-  ```` file1: ```` 
+  ```` sketchify.cpp: ```` setupOutput(w,h) returns a ptr to an image. myFavoriteColor() returns a . sketchify(in, out) doesnt return anything but uses setupOutput(w,h) in order to initialize a new PNG and uses myFavoriteColor() in order to initialize a Pixel labeled myPixel
   
   ```` file2: ```` 
   
