@@ -1711,17 +1711,17 @@ Below are all the information about the changes I made on the labs
   <details> <summary> <span style="color: green"> lab_intro </span></summary>
 
   #### Description
-  > 'replace with lab concept' 
+  > Set up a class (for HSLAPixels) and modify a PNG
 
   #### Changed Files: 
-  ```` file1 ```` ```` file2 ```` ```` file3````
+  ```` lab_intro.cpp ```` ```` cs225/HSLAPixel.cpp ```` ```` cs225/HSLAPixel.h ````
 
   #### Instructions
-  ```` file1: ```` 
+  ```` lab_intro.cpp: ```` think of this as your main() function file. You will have to implement the functinos in order to 'Modify the PNG in three new ways'
   
-  ```` file2: ```` 
+  ```` cs225/HSLAPixel.cpp: ```` This is the implementation of the HSLAPixel Class. You will be modifying each of the pixels of a PNG, so you will need to determine the (H)ue, (S)aturation, (L)uminence, and (A)lpha elements whenever you initialize a new pixel or when you modify an existing.  
   
-  ```` file3: ````
+  ```` cs225/HSLAPixel.h: ```` Similar to HSLAPixel.cpp, but instead of implementations .h files are used to declare.
 
   #### Output Files, Design Statistics and Resources (inspired by ECE 385)
   ```` 'image' of output: ````
